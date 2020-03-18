@@ -12,6 +12,7 @@ heroes = {
 5 : 'Priest',
 6 : 'Rogue',
 7 : 'Shaman',
+8 : 'Warlock',
 9 : 'Warrior'}
 
 #Takes int corresponding to user's hero
@@ -77,7 +78,8 @@ while(search):
     card = input("Enter a valid keyword or press Enter to exit: ").lower()
     if(card == ''):
         search = False
-        hero_file.close()
         break
     print()
     search_cards(card, hero_file)
+
+hero_file.close()
