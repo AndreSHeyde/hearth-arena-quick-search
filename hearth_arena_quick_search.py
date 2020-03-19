@@ -22,9 +22,14 @@ def get_hero_file(hero):
 
 #Searches file for lines containing key and prints those lines
 def search_cards(key, file):
+    file.seek(0)
+    success = False
     for string in file.readlines():
         if(key.lower() in string.lower()):
             print(string)
+            success = True
+    return success
+
 
 #Creates or overwrites a text file containing tierlist data (name and rank)
 def build_files():
@@ -80,6 +85,8 @@ while(search):
         search = False
         break
     print()
-    search_cards(card, hero_file)
+    card_found = search_cards(card, hero_file)
+    if(not card_found):
+        print('Invalid keyword entry...')
 
 hero_file.close()
